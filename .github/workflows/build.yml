@@ -225,7 +225,6 @@ jobs:
           - fedora40-systemd
           - fedora41-systemd
           - kali-systemd
-          - ubuntu-20-systemd
           - ubuntu-22-systemd
           - ubuntu-24-systemd
         scenario:
