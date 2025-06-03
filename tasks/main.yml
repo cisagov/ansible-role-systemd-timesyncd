@@ -1,2 +1,10 @@
 ---
-# tasks file for skeleton
+- name: Install systemd-timesyncd
+  ansible.builtin.package:
+    name:
+      - systemd-timesyncd
+
+- name: Enable systemd-timesyncd at boot
+  ansible.builtin.service:
+    enabled: true
+    name: systemd-timesyncd.service
