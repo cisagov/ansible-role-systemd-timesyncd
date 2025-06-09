@@ -19,7 +19,7 @@
 
 - name: Install systemd-timesyncd
   ansible.builtin.package:
-    name: "{{ systemd_timesyncd_packages}}"
+    name: "{{ systemd_timesyncd_packages }}"
 
 - name: Enable systemd-timesyncd at boot
   ansible.builtin.service:
