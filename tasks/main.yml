@@ -1,8 +1,25 @@
 ---
-- name: Install systemd-timesyncd
+- name: Load var file with package names based on the OS type
+  ansible.builtin.include_vars: "{{ lookup('first_found', params) }}"
+  vars:
+    params:
+      files:
+        - "{{ ansible_distribution }}_{{ ansible_distribution_release }}.yml"
+        - "{{ ansible_distribution }}.yml"
+        - "{{ ansible_os_family }}.yml"
+      paths:
+        - "{{ role_path }}/vars"
+
+# Chrony comes pre-installed on some RedHat platforms.
+- name: Remove chrony
   ansible.builtin.package:
     name:
-      - systemd-timesyncd
+      - chrony
+    state: absent
+
+- name: Install systemd-timesyncd
+  ansible.builtin.package:
+    name: "{{ systemd_timesyncd_packages}}"
 
 - name: Enable systemd-timesyncd at boot
   ansible.builtin.service:

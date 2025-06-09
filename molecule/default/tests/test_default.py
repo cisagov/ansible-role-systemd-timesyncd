@@ -12,10 +12,23 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 ).get_hosts("all")
 
 
-@pytest.mark.parametrize("pkg", ["systemd-timesyncd"])
-def test_packages(host, pkg):
-    """Verify that the expected packages are installed."""
-    assert host.package(pkg).is_installed, f"The package {pkg} is not installed."
+def test_packages(host):
+    """Verify that the expected packages are installed/removed."""
+    installed_pkgs = None
+    removed_pkgs = None
+    if host.system_info.distribution in ["debian", "kali", "ubuntu"]:
+        installed_pkgs = ["systemd-timesyncd"]
+        removed_pkgs = []
+    elif host.system_info.distribution in ["amzn", "fedora"]:
+        installed_pkgs = ["systemd-udev"]
+        removed_pkgs = ["chrony"]
+    else:
+        assert False, f"Unknown distribution {host.system_info.distribution}."
+
+    for pkg in installed_pkgs:
+        assert host.package(pkg).is_installed, f"The package {pkg} is not installed."
+    for pkg in removed_pkgs:
+        assert not host.package(pkg).is_installed, f"The package {pkg} is present."
 
 
 @pytest.mark.parametrize("svc", ["systemd-timesyncd.service"])

@@ -1,0 +1,3 @@
+---
+systemd_timesyncd_packages:
+  - systemd-udev
