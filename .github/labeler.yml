@@ -52,10 +52,12 @@ test:
           # Add any test-related files or paths.
           - .ansible-lint
           - .bandit.yml
+          - .config/molecule/config.yml
           - .flake8
           - .isort.cfg
           - .mdl_config.yaml
           - .yamllint
+          - molecule/**
 upstream update:
   - head-branch:
       # Any Lineage pull requests should use this branch.
