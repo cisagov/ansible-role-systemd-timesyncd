@@ -2,6 +2,9 @@
 # Rather than breaking up descriptions into multiline strings we disable that
 # specific rule in yamllint for this file.
 # yamllint disable rule:line-length
+- color: f15a53
+  description: Pull requests that update Ansible code
+  name: ansible
 - color: eb6420
   description: This issue or pull request is awaiting the outcome of another issue or pull request
   name: blocked
