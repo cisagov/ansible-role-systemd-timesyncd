@@ -1,6 +1,7 @@
 # ansible-role-systemd-timesyncd #
 
 [![GitHub Build Status](https://github.com/cisagov/ansible-role-systemd-timesyncd/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-systemd-timesyncd/actions)
+[![License](https://img.shields.io/github/license/cisagov/ansible-role-systemd-timesyncd)](https://spdx.org/licenses/)
 [![CodeQL](https://github.com/cisagov/ansible-role-systemd-timesyncd/workflows/CodeQL/badge.svg)](https://github.com/cisagov/ansible-role-systemd-timesyncd/actions/workflows/codeql-analysis.yml)
 
 This is an Ansible role that installs and configures
