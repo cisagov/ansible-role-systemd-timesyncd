@@ -4,6 +4,8 @@ max-line-length = 80
 # Select (turn on)
 # * Complexity violations reported by mccabe (C) -
 #   http://flake8.pycqa.org/en/latest/user/error-codes.html#error-violation-codes
+# * Default errors and warnings reported by flake8-comprehensions (C4) -
+#   https://github.com/adamchainz/flake8-comprehensions#rules
 # * Documentation conventions compliance reported by pydocstyle (D) -
 #   http://www.pydocstyle.org/en/stable/error_codes.html
 # * Default errors and warnings reported by dlint (DUO) -
@@ -20,7 +22,7 @@ max-line-length = 80
 #   https://github.com/PyCQA/flake8-bugbear#list-of-warnings
 # * The B950 flake8-bugbear opinionated warning -
 #   https://github.com/PyCQA/flake8-bugbear#opinionated-warnings
-select = C,D,DUO,E,F,N,NQA,W,B,B950
+select = C,C4,D,DUO,E,F,N,NQA,W,B,B950
 
 # Ignore
 # * flake8's default warning about whitespace before ':' because Black enforces
