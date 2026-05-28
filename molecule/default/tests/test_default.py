@@ -23,7 +23,7 @@ def test_packages(host):
         installed_pkgs = ["systemd-udev"]
         removed_pkgs = ["chrony"]
     else:
-        assert False, f"Unknown distribution {host.system_info.distribution}."
+        raise ValueError(f"Unknown distribution {host.system_info.distribution}.")
 
     for pkg in installed_pkgs:
         assert host.package(pkg).is_installed, f"The package {pkg} is not installed."
